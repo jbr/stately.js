@@ -17,17 +17,22 @@ machine = stately.define(function (s) {
     , reverse: [ "neutral", "stall" ]
     , stall: "off"
     })
+    
+  s.onTransition ('off', 'neutral', function () { sys.puts ("starting engine") })
+  s.onTransition (null, 'stall', function () { sys.puts ("stalled out") })
 
   s.addListener ("illegalTransition", function (from, to) {
     sys.puts ("cannot transition from " + from + " to " + to + "!")
+    s.transition ('stall')
   })
 
 })
   
 machine.start ()
-machine.transition ('neutral')
+machine.transition ('neutral') //=> stdout: 'starting engine'
 machine.state //=> 'neutral'
 
 machine.transition ('forward') //=> true
-machine.transition ('reverse') //=> false, stdout: 'cannot transition from forward to reverse!'
+machine.transition ('reverse') //=> false, stdout: 'cannot transition from forward to reverse! \n stalled out'
+machine.state //=> 'stall'
 </code></pre>
