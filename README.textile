@@ -1,4 +1,6 @@
-h1. This repository is an expression of intent-to-build a state machine for evented javascript.
+h1. Stately.js
+
+This repository is an expression of intent-to-build a state machine for evented javascript.
 
 h2. A sketch
 
