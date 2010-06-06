@@ -3,3 +3,26 @@ h1. Stately.js
 Stately is a state machine for node.js.  It's currently fairly simple, but eventually should be feature comparable with "aasm":http://github.com/rubyist/aasm.  Pretty much everything requires/is a state machine, so a reusable state machine module reduces duplication.
 
 Check out example.js for usage.
+
+h2. Callback chain
+
+Given a transition from state "from" to state "to":
+
+# @beforeTransition@
+** callback arguments: @"from"@, @"to"@
+** @machine.beforeTransition (fn)@
+# @beforeTransition:from:to@ or machine.beforeTransition
+** @machine.beforeTransition ('from', 'to', fn)@
+# @beforeExit:from@
+** @machine.beforeExit ('from', fn)@
+# @beforeEnter:to@
+** @machine.beforeEnter ('to', fn)@
+# @afterExit:from@
+** @machine.afterExit ('from', fn)@
+# @afterEnter:to@
+** @machine.afterEnter ('to', fn)@
+# @afterTransition:from:to@
+** @machine.afterTransition ('from', 'to', fn)@
+# @afterTransition@
+** callback arguments: @"from"@, @"to"@
+** @machine.afterTransition ('from', 'to', fn)@
