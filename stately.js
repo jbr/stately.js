@@ -6,12 +6,12 @@ stately.define = function (callback) {
   var machine = new EventEmitter ()
     , privateState = null
     , validTransition = function (from, to) {
-      var allowedTransitions = machine.transitions[from]
+      var allowedTransitions = machine.transitions [from]
       if (from === to) return true
       else if (typeof allowedTransitions === 'undefined')
         machine.emit('error', new Error ("attempting to transition from unknown state: " + from))
       else if (typeof allowedTransitions === 'string') return to === allowedTransitions
-      else return allowedTransitions.indexOf(to) > -1
+      else return allowedTransitions.indexOf (to) !== -1
     }
 
   machine.transition = function (desiredState) {
