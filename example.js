@@ -48,3 +48,4 @@ assert.equal ('stall', machine.state)
 machine.state = 'off'
 machine.state = 'neutral'
 machine.state = 'forward'
+assert.equal ('forward', machine.state)

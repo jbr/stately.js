@@ -1,5 +1,4 @@
 var stately = exports
-  , sys = require ("sys")
   , EventEmitter = require ('events').EventEmitter
   
 stately.define = function (callback) {
