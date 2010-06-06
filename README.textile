@@ -2,7 +2,7 @@ h1. Stately.js
 
 Stately is a state machine for node.js.  It's currently fairly simple, but eventually should be feature comparable with "aasm":http://github.com/rubyist/aasm.  Pretty much everything requires/is a state machine, so a reusable state machine module reduces duplication.
 
-Check out example.js for usage.
+Check out "example.js":http://github.com/jbr/stately.js/blob/master/stately.js for usage.
 
 h2. Callback chain
 
